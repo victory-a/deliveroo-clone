@@ -46,11 +46,11 @@ const HomeScreen = () => {
         <Categories />
 
         {/* featured */}
-        <FeaturedRow id="123" title='Featured' description='Paid placements from out partners' />
+        <FeaturedRow id='123' title='Featured' description='Paid placements from out partners' />
         {/* Tasty Discounts */}
-        <FeaturedRow id="1234" title='Featured' description='Paid placements from out partners' />
+        <FeaturedRow id='1234' title='Featured' description='Paid placements from out partners' />
         {/* Offers near you */}
-        <FeaturedRow id="12345" title='Featured' description='Paid placements from out partners' />
+        <FeaturedRow id='12345' title='Featured' description='Paid placements from out partners' />
       </ScrollView>
     </SafeAreaView>
   );

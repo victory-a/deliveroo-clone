@@ -19,8 +19,8 @@ export default defineType({
     }),
     defineField({
       name: 'image',
-      type: 'image',
       title: 'Image of the Restaurant',
+      type: 'image',
       validation: (rule) => rule.required(),
     }),
     defineField({

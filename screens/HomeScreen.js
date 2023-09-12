@@ -5,13 +5,33 @@ import { UserIcon, ChevronDownIcon, AdjustmentsVerticalIcon, MagnifyingGlassIcon
 import Categories from './components/Categories';
 import FeaturedRow from './components/FeaturedRow';
 
+import sanityClient from '../sanity';
+
 const HomeScreen = () => {
   const navigation = useNavigation();
+  const [featuredCategories, setFeaturedCategories] = React.useState([]);
 
   React.useLayoutEffect(() => {
     navigation.setOptions({
       headerShown: false,
     });
+  }, []);
+
+  React.useEffect(() => {
+    sanityClient
+      .fetch(
+        `
+    *[_type == "featured"]{
+      ...,
+      restaurants[]-> {
+        ...,
+        dishes[]->,
+      }
+    }`
+      )
+      .then((data) => {
+        setFeaturedCategories(data);
+      });
   }, []);
 
   return (
@@ -41,16 +61,16 @@ const HomeScreen = () => {
       </View>
 
       {/* body */}
-      <ScrollView>
+      <ScrollView
+        contentContainerStyle={{
+          paddingBottom: 120,
+        }}>
         {/* categories */}
         <Categories />
 
-        {/* featured */}
-        <FeaturedRow id='123' title='Featured' description='Paid placements from out partners' />
-        {/* Tasty Discounts */}
-        <FeaturedRow id='1234' title='Featured' description='Paid placements from out partners' />
-        {/* Offers near you */}
-        <FeaturedRow id='12345' title='Featured' description='Paid placements from out partners' />
+        {featuredCategories?.map((category) => {
+          return <FeaturedRow key={category._id} id={category._id} title={category.name} description={category.short_description} />;
+        })}
       </ScrollView>
     </SafeAreaView>
   );

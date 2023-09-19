@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, ScrollView } from 'react-native';
 import { ArrowRightIcon } from 'react-native-heroicons/outline';
-import sanityClient from '../../sanity';
+import sanityClient from '../sanity';
 import RestaurantCard from './RestaurantCard';
 
 const FeaturedRow = ({ id, title, description }) => {

@@ -2,8 +2,8 @@ import { View, Text, SafeAreaView, Image, TextInput, ScrollView } from 'react-na
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { UserIcon, ChevronDownIcon, AdjustmentsVerticalIcon, MagnifyingGlassIcon } from 'react-native-heroicons/outline';
-import Categories from './components/Categories';
-import FeaturedRow from './components/FeaturedRow';
+import Categories from '../components/Categories';
+import FeaturedRow from '../components/FeaturedRow';
 
 import sanityClient from '../sanity';
 

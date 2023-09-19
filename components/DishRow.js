@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 import Currency from 'react-currency-formatter';
-import { urlFor } from '../../sanity';
+import { urlFor } from '../sanity';
 import { MinusCircleIcon, PlusCircleIcon } from 'react-native-heroicons/solid';
-import { addToBasket, removeFromBasket, selectBasketItemsWithId } from '../../features/basketSlice';
+import { addToBasket, removeFromBasket, selectBasketItemsWithId } from '../features/basketSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
 const DishRow = (props) => {
